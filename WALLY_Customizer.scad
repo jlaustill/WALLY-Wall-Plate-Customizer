@@ -49,22 +49,42 @@ plate_size = 0; // [0:Standard, 1:Junior-Jumbo, 2:Jumbo]
 1st_plate = "none";  //	["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
 //Pick a bottom plug type or leave as none
 1st_plate_bottom_hole = "none";  //	["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+//Add some text on the top
+1st_plate_top_text = "";
+//Add some text on the bottom
+1st_plate_bottom_text = "";
 //Pick a plug or full plate type
 2nd_plate = "none";  //	["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
 //Pick a bottom plug type or leave as none
 2nd_plate_bottom_hole = "none";  //	["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+//Add some text on the top
+2nd_plate_top_text = "";
+//Add some text on the bottom
+2nd_plate_bottom_text = "";
 //Pick a plug or full plate type
 3rd_plate = "none";  //	["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
 //Pick a bottom plug type or leave as none
 3rd_plate_bottom_hole = "none";  //	["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+//Add some text on the top
+3rd_plate_top_text = "";
+//Add some text on the bottom
+3rd_plate_bottom_text = "";
 //Pick a plug or full plate type
 4th_plate = "none";  //["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
 //Pick a bottom plug type or leave as none
 4th_plate_bottom_hole = "none";  //	["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+//Add some text on the top
+4th_plate_top_text = "";
+//Add some text on the bottom
+4th_plate_bottom_text = "";
 //Pick a plug or full plate type
 5th_plate = "none";  //["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
 //Pick a bottom plug type or leave as none
 5th_plate_bottom_hole = "none";  //	["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+//Add some text on the top
+5th_plate_top_text = "";
+//Add some text on the bottom
+5th_plate_bottom_text = "";
 
   //////////////////////
  // Static Settings: //
@@ -76,6 +96,8 @@ module GoAwayCustomizer() {
 
 plates = [1st_plate, 2nd_plate, 3rd_plate, 4th_plate, 5th_plate];
 bottom_plates = [1st_plate_bottom_hole, 2nd_plate_bottom_hole, 3rd_plate_bottom_hole, 4th_plate_bottom_hole, 5th_plate_bottom_hole];
+top_texts = [1st_plate_top_text, 2nd_plate_top_text, 3rd_plate_top_text, 4th_plate_top_text, 5th_plate_top_text];
+bottom_texts = [1st_plate_bottom_text, 2nd_plate_bottom_text, 3rd_plate_bottom_text, 4th_plate_bottom_text, 5th_plate_bottom_text];
 
 l_offset = [34.925,39.6875,44.45];
 r_offset = [34.925,39.6875,44.45];
@@ -101,37 +123,56 @@ positions=[height_sizes[plate_size]/2,height_sizes[plate_size]/2 - 14.25,height_
   ///////////////////
  // Hole Control: //
 ///////////////////
+module plate_text(text, offset, plate_number) {
+        echo (text);
+        translate([offset,34.925 + (plate_number * switch_offset),6])
+        rotate([0,0,90])
+        text(text, halign="center");
+    
+}
 
 module plate(plate = 1){
     plate_index = plate - 1; // indexes are zero based
+    echo ("what do we have here?");
+    echo (plates[plate_index]);
+    
     if (plates[plate_index] == "L5-30P") {
+        plate_text(top_texts[plate_index], 20, plate_index);
+        plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) toggle_screws();
-		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
-        
+		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);        
     } else if (plates[plate_index] == "toggle" || bottom_plates[plate_index] == "toggle"){
+        plate_text(top_texts[plate_index], 20, plate_index);
+        plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) toggle_screws();
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
-		}
-	else if (plates[plate_index] == "long_toggle" || bottom_plates[plate_index] == "long_toggle"){
+    } else if (plates[plate_index] == "long_toggle" || bottom_plates[plate_index] == "long_toggle"){
+        plate_text(top_texts[plate_index], 20, plate_index);
+        plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) toggle_screws();
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
-		}
-	else if (plates[plate_index] == "rocker" || bottom_plates[plate_index] == "rocker"){
+	} else if (plates[plate_index] == "rocker" || bottom_plates[plate_index] == "rocker"){
+        plate_text(top_texts[plate_index], 21, plate_index);
+        plate_text(bottom_texts[plate_index], 101, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) rocker_screws();
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
-		}
-	else if (plates[plate_index] == "outlet" || bottom_plates[plate_index] == "outlet") {
+	} else if (plates[plate_index] == "outlet" || bottom_plates[plate_index] == "outlet") {
+        plate_text(top_texts[plate_index], 20, plate_index);
+        plate_text(bottom_texts[plate_index], 104, plate_index);
         translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
-	}
-	else if (bottom_plates[plate_index] == "none") {
+	} else if (bottom_plates[plate_index] == "none") {
+        plate_text(top_texts[plate_index], 30, plate_index);
+        plate_text(bottom_texts[plate_index], 94, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) box_screws();
 		translate([positions[0],l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
-			}
-	else if (plates[plate_index] == "none") {
+	} else if (plates[plate_index] == "none") {
+        plate_text(top_texts[plate_index], 20, plate_index);
+        plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) box_screws();
 		translate([positions[0],l_offset[plate_size] + switch_offset * plate_index,0]) hole(bottom_plates[plate_index]);
-			}
-	else {
+	} else {
+        plate_text(top_texts[plate_index], 30, plate_index);
+        plate_text(bottom_texts[plate_index], 94, plate_index);
         translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) box_screws();
         translate([positions[1],l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);
         translate([positions[2],l_offset[plate_size] + switch_offset * plate_index,0]) hole(bottom_plates[plate_index]);
