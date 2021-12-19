@@ -140,7 +140,7 @@ module plate(plate = 1){
         plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) toggle_screws();
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) hole(plates[plate_index]);        
-    } else if (plates[plate_index] == "toggle" || bottom_plates[plate_index] == "toggle"){
+    } else if (plates[plate_index] == "toggle" || bottom_plates[plate_index] == "toggle") {
         plate_text(top_texts[plate_index], 20, plate_index);
         plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) toggle_screws();
@@ -169,7 +169,8 @@ module plate(plate = 1){
         plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) box_screws();
 		translate([positions[0],l_offset[plate_size] + switch_offset * plate_index,0]) hole(bottom_plates[plate_index]);
-	} else {
+	}
+    else if (plate_index > 0) {
         plate_text(top_texts[plate_index], 30, plate_index);
         plate_text(bottom_texts[plate_index], 94, plate_index);
         translate([0,l_offset[plate_size] + switch_offset * plate_index,0]) box_screws();
