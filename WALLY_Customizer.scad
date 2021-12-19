@@ -123,18 +123,17 @@ positions=[height_sizes[plate_size]/2,height_sizes[plate_size]/2 - 14.25,height_
   ///////////////////
  // Hole Control: //
 ///////////////////
-module plate_text(text, offset, plate_number) {
-        echo (text);
-        translate([offset,34.925 + (plate_number * switch_offset),6])
-        rotate([0,0,90])
-        text(text, halign="center");
+module plate_text(text, offset, plate_number, size = 8) {
+    echo (positions[0]);
+    translate([offset+(plate_size * 4.5),l_offset[plate_size] + (plate_number * switch_offset),4])
+    rotate([0,0,90])
+    linear_extrude(40)
+    text(text, halign="center", size = size);
     
 }
 
 module plate(plate = 1){
     plate_index = plate - 1; // indexes are zero based
-    echo ("what do we have here?");
-    echo (plates[plate_index]);
     
     if (plates[plate_index] == "L5-30P") {
         plate_text(top_texts[plate_index], 20, plate_index);
