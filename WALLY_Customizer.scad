@@ -128,7 +128,7 @@ module plate_text(text, offset, plate_number, size = 8) {
     translate([offset+(plate_size * 4.5),l_offset[plate_size] + (plate_number * switch_offset),4])
     rotate([0,0,90])
     linear_extrude(40)
-    text(text, halign="center", size = size);
+    text(text, halign="center", size = size, font="Liberation Mono:Bol");
     
 }
 
