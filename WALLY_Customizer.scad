@@ -15,7 +15,7 @@
 
 	* The plug types "Duplex Outlet", "Long_Toggle Switch", "Toggle Switch", and "Rocker"
 	  will all use the entire plate when selected in top or bottom configuration. The
-	  other selection (if not "none" will be selected.
+	  other selection (if not "none") will be selected.
 
 	* "None" and "Blank should not be considered equal. if "None" is selected for one of
 	  the two holes on a plate the other selection will be centered on that plate. If
