@@ -596,7 +596,7 @@ module hole(hole_type)
  // Number One ENGAGE: //
 ////////////////////////
 
-// Rotate so it sits correctly on plate (whoops) and make right side up to ensure a smnoother face (if you use monotonic ironing, anyway)
+// Rotate so it sits correctly on plate (whoops) and make right side up to ensure a smoother face (if you use monotonic ironing, anyway)
 rotate([0, 0, -90])
 {
     // put plate at 0,0,0 for easier printing
