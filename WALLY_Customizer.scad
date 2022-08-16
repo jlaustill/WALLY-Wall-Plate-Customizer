@@ -24,6 +24,9 @@
 
 		Change Log:
 
+		v1.5
+		- Added Neutrik Cutouts (https://www.datapro.net/drawings/cutouts/neutrik_cutout.pdf) per HacksolotFilms's suggestion
+
 		v1.4 - The "I've never used OpenSCAD in my life until yesterday" edition! :D
 		- Added Keystone Jack - Dual to allow a pair of keystone jacks side-by-side.
 		- Fixed a bug where the first plate spot did not build unless one of the "full plate" options are used
@@ -54,41 +57,41 @@ plate_width = 1; //	[1:5]
 plate_size = 0; // [0:Standard, 1:Junior-Jumbo, 2:Jumbo]
 
 //Pick a plug or full plate type
-1st_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+1st_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "rocker":Full Plate - Rocker/Designer Plate, "L5-30P", "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Pick a bottom plug type or leave as none
-1st_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+1st_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Add some text on the top
 1st_plate_top_text = "";
 //Add some text on the bottom
 1st_plate_bottom_text = "";
 //Pick a plug or full plate type
-2nd_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+2nd_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "rocker":Full Plate - Rocker/Designer Plate, "L5-30P", "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Pick a bottom plug type or leave as none
-2nd_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+2nd_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Add some text on the top
 2nd_plate_top_text = "";
 //Add some text on the bottom
 2nd_plate_bottom_text = "";
 //Pick a plug or full plate type
-3rd_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+3rd_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "rocker":Full Plate - Rocker/Designer Plate, "L5-30P", "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Pick a bottom plug type or leave as none
-3rd_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+3rd_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Add some text on the top
 3rd_plate_top_text = "";
 //Add some text on the bottom
 3rd_plate_bottom_text = "";
 //Pick a plug or full plate type
-4th_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+4th_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "rocker":Full Plate - Rocker/Designer Plate, "L5-30P", "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Pick a bottom plug type or leave as none
-4th_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+4th_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Add some text on the top
 4th_plate_top_text = "";
 //Add some text on the bottom
 4th_plate_bottom_text = "";
 //Pick a plug or full plate type
-5th_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "L5-30P", "rocker":Full Plate - Rocker/Designer Plate, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+5th_plate = "none";								// ["none":None, "blank":Blank Port, "toggle":Full Plate - Toggle Switch, "long_toggle":Full Plate - Long Toggle Switch, "outlet":Full Plate - Duplex Outlet, "rocker":Full Plate - Rocker/Designer Plate, "L5-30P", "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Pick a bottom plug type or leave as none
-5th_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack]
+5th_plate_bottom_hole = "none";					// ["none":None, "blank":Blank Port, "keystone1":Keystone Jack, "keystone2":Keystone Jack - Dual, "vga":VGA Port, "hdmi":HDMI Port, "dvi":DVI-I Port, "displayport":Displayport, "cat5e":Cat5e/Cat6 Port, "usb-a":USB-A Port, "usb-b":USB-B Port, "firewire":Firewire IEEE 1394 Port, "db09":DB-09 Port, "ps2":PS2 Port, "f-type": F-Type/Coaxial Port,"svideo":S-Video Port, "stereo":Stereo Headphone Jack, "neutrik": Neutrik Cutout]
 //Add some text on the top
 5th_plate_top_text = "";
 //Add some text on the bottom
@@ -134,73 +137,84 @@ positions = [height_sizes[plate_size] / 2, height_sizes[plate_size] / 2 - 14.25,
 ///////////////////
 module plate_text(text, offset, plate_number, size = 8)
 {
-    echo (positions[0]);
-    translate([offset + (plate_size * 4.5), l_offset[plate_size] + (plate_number * switch_offset), 4])
-    rotate([0, 0, 90])
-    linear_extrude(40)
-    text(text, halign = "center", size = size, font = "Liberation Mono:Bold");
-    
+	translate([offset + (plate_size * 4.5), l_offset[plate_size] + (plate_number * switch_offset), 4])
+	rotate([0, 0, 90])
+	linear_extrude(40)
+	text(text, halign = "center", size = size, font = "Liberation Mono:Bold");
 }
 
 module plate(plate = 1)
 {
-    plate_index = plate - 1; // indexes are zero based
-    
-    if (plates[plate_index] == "L5-30P")
-    {
-        plate_text(top_texts[plate_index], 20, plate_index);
-        plate_text(bottom_texts[plate_index], 104, plate_index);
+	plate_index = plate - 1; // indexes are zero based
+
+	// handle all "full plate" options first...
+	if (plates[plate_index] == "L5-30P")
+	{
+		plate_text(top_texts[plate_index], 20, plate_index);
+		plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) toggle_screws();
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);        
-    }
-    else if (plates[plate_index] == "toggle" || bottom_plates[plate_index] == "toggle")
-    {
-        plate_text(top_texts[plate_index], 20, plate_index);
-        plate_text(bottom_texts[plate_index], 104, plate_index);
+	}
+	else if (plates[plate_index] == "toggle" || bottom_plates[plate_index] == "toggle")
+	{
+		plate_text(top_texts[plate_index], 20, plate_index);
+		plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) toggle_screws();
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
-    }
-    else if (plates[plate_index] == "long_toggle" || bottom_plates[plate_index] == "long_toggle")
-    {
-        plate_text(top_texts[plate_index], 20, plate_index);
-        plate_text(bottom_texts[plate_index], 104, plate_index);
+	}
+	else if (plates[plate_index] == "long_toggle" || bottom_plates[plate_index] == "long_toggle")
+	{
+		plate_text(top_texts[plate_index], 20, plate_index);
+		plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) toggle_screws();
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
 	}
 	else if (plates[plate_index] == "rocker" || bottom_plates[plate_index] == "rocker")
 	{
-        plate_text(top_texts[plate_index], 21, plate_index);
-        plate_text(bottom_texts[plate_index], 101, plate_index);
+		plate_text(top_texts[plate_index], 21, plate_index);
+		plate_text(bottom_texts[plate_index], 101, plate_index);
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) rocker_screws();
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
 	}
 	else if (plates[plate_index] == "outlet" || bottom_plates[plate_index] == "outlet")
 	{
-        plate_text(top_texts[plate_index], 20, plate_index);
-        plate_text(bottom_texts[plate_index], 104, plate_index);
-        translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
+		plate_text(top_texts[plate_index], 20, plate_index);
+		plate_text(bottom_texts[plate_index], 104, plate_index);
+		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
 	}
 	else if (bottom_plates[plate_index] == "none")
 	{
-        plate_text(top_texts[plate_index], 30, plate_index);
-        plate_text(bottom_texts[plate_index], 94, plate_index);
+		plate_text(top_texts[plate_index], 30, plate_index);
+		plate_text(bottom_texts[plate_index], 94, plate_index);
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) box_screws();
 		translate([positions[0], l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
 	}
 	else if (plates[plate_index] == "none")
 	{
-        plate_text(top_texts[plate_index], 20, plate_index);
-        plate_text(bottom_texts[plate_index], 104, plate_index);
+		plate_text(top_texts[plate_index], 20, plate_index);
+		plate_text(bottom_texts[plate_index], 104, plate_index);
 		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) box_screws();
 		translate([positions[0], l_offset[plate_size] + switch_offset * plate_index, 0]) hole(bottom_plates[plate_index]);
 	}
-    else if (plate_index >= 0)
-    {
-        plate_text(top_texts[plate_index], 30, plate_index);
-        plate_text(bottom_texts[plate_index], 94, plate_index);
-        translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) box_screws();
-        translate([positions[1], l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
-        translate([positions[2], l_offset[plate_size] + switch_offset * plate_index, 0]) hole(bottom_plates[plate_index]);
+	// ...before handling the hole origins for the top/bottom combo layouts
+	else
+	{
+		plate_text(top_texts[plate_index], 30, plate_index);
+		plate_text(bottom_texts[plate_index], 94, plate_index);
+		translate([0, l_offset[plate_size] + switch_offset * plate_index, 0]) box_screws();
+
+		if (plates[plate_index] == "neutrik")
+		{
+			// here we modify the positions for the Neutrik holes since they need to be a litle further apart than the typical spacing allows
+			translate([positions[1] - 4, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
+			translate([positions[2] + 4, l_offset[plate_size] + switch_offset * plate_index, 0]) hole(bottom_plates[plate_index]);
+		}
+		else
+		{
+			// if it's not Neutrik, proceed as normal
+			translate([positions[1], l_offset[plate_size] + switch_offset * plate_index, 0]) hole(plates[plate_index]);
+			translate([positions[2], l_offset[plate_size] + switch_offset * plate_index, 0]) hole(bottom_plates[plate_index]);
+		}
 	}
 }
 
@@ -231,7 +245,6 @@ module plate_solid(plate = 1)
 	{
 		translate([height_sizes[plate_size]/2 + 28.5, l_offset[plate_size] - 11.5 + switch_offset * plate_index, -3.9]) hole("keystone_solid");
 	}
-
 
 
 	if (plates[plate_index] == "keystone2" && bottom_plates[plate_index] == "none")
@@ -325,11 +338,13 @@ module toggle_screws()
 // Hole Cutout definitions
 module hole(hole_type)
 {
+	// Blank plate
+	if (hole_type == "blank") {}
+
 	// L5-30P outlet hole
     if (hole_type == "L5-30P")
     {
 		translate([height_sizes[plate_size] / 2, 0, 0]) cylinder(d = 35.5, h = 500, center = true);
-		//cylinder(h=100, r=50);
     }
 
 
@@ -377,9 +392,6 @@ module hole(hole_type)
 		translate([height_sizes[plate_size] / 2, 0, -1]) cylinder(r = 2, h = 10);
 		translate([height_sizes[plate_size] / 2, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3);
 	}
-
-	// Blank plate
-	if (hole_type == "blank") {}
 
 	// VGA & DB09 plate
 	// VGA Fits http://www.datapro.net/products/vga-dual-panel-mount-f-f-cable.html
@@ -493,15 +505,22 @@ module hole(hole_type)
 	// Stereo coupler Fits http://www.datapro.net/products/stereo-panel-mount-coupler.html
 	if (hole_type == "stereo")
 	{
-		translate([0, 0, 3]) cylinder(r = 2.985, h = 10, center = true);
+		cylinder(r = 2.985, h = 15, center = true);
+	}
+
+	// Neutrik cutout
+	if (hole_type == "neutrik")
+	{
+		cylinder(d = 24, h = 15, center = true);
+		translate([-12, -9.5, 0]) cylinder(d = 3.2, h = 15, $fn = 16);
+		translate([12, 9.5, 0]) cylinder(d = 3.2, h = 15, $fn = 16);
 	}
 
 	//Keystone1 hole
 	//Hole for 1 Keystone Jack
 	if (hole_type == "keystone1")
 	{
-		translate([0, 0, 5])
-		cube([16.5, 15, 10], center = true);
+		translate([0, 0, 5]) cube([16.5, 15, 10], center = true);
 	}
 
 	//Keystone2 hole
@@ -510,18 +529,16 @@ module hole(hole_type)
 	{
 		translate([0, -13, 0])
 		{
-			translate([-8.25, -7, 2])
-			cube([16.5, 15, 10]);
+			translate([-8.25, -7, 2]) cube([16.5, 15, 10]);
 		}
 
 		translate([0, 12, 0])
 		{
-			translate([-8.25, -7, 2])
-			cube([16.5, 15, 10]);
+			translate([-8.25, -7, 2]) cube([16.5, 15, 10]);
 		}
 	}
 
-	//Keystone Solids
+	// Keystone Solids
 	if (hole_type == "keystone_solid")
 	{
 		rotate([0, 0, 90])
@@ -537,9 +554,9 @@ module hole(hole_type)
 						translate([-1, -0.001, 3.501]) cube([17, 2, 6.5]);
 						translate([-1, 2.5, -3.40970]) rotate([45, 0, 0]) cube([17, 2, 6.5]);
 						translate([-1, 18.501, 6.001]) cube([17, 4, 4]);
+				}
 						translate([-1, 20.5, 0]) rotate([-45, 0, 0]) cube([17, 2, 6.5]);
 					}
-				}
 			}
 		}
 	}
