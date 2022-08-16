@@ -509,6 +509,7 @@ module hole(hole_type)
 	}
 
 	// Neutrik cutout
+	// https://www.datapro.net/drawings/cutouts/neutrik_cutout.pdf
 	if (hole_type == "neutrik")
 	{
 		cylinder(d = 24, h = 15, center = true);
