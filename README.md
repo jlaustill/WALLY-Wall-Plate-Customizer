@@ -6,31 +6,32 @@ Change Log:
 
 v1.7 - Mercury0x0d - 8/24/2022
 Added:
-	- Completely rewrote the jack layout engine:
-		- Mixed Plate layouts can now handle up to three rows of jacks
-		- Pitch between rows of jacks is now selectable on a per-gang basis
-	- Created jack "A/V - Banana Plug"  based on jack "A/V - Banana Plug With Border"
-	- Height values to the Plate Size dropdown menu
-	- Improvements from "ReModded_WALLY_Plate_Customizer" (https://www.thingiverse.com/thing:4493144) by RobBotic:
-		- Imported modules for creating keystone jacks / solids resulting in a better fit and an improved code footprint
-		- Imported jack "A/V - Banana Plug With Border"
-	- New Full Plate types from "Customizable Switch or Outlet Wall Plate" (https://www.thingiverse.com/thing:3840723) by pete2585:
-		- Power - Outlet - Despard Single
-		- Power - Outlet - Despard Double
-		- Power - Outlet - Despard Triple
-		- Lighting - Pushbutton Pair
-		- Lighting - Rotary Dimmer / Fan Control
+- Completely rewrote the jack layout engine
+	- Mixed Plate layouts can now handle up to three rows of jacks
+	- Pitch between rows of jacks is now selectable on a per-gang basis
+- Created jack "A/V - Banana Plug"  based on jack "A/V - Banana Plug With Border"
+- Height values to the Plate Size dropdown menu
+- Improvements from "ReModded_WALLY_Plate_Customizer" (https://www.thingiverse.com/thing:4493144) by RobBotic
+	- Imported modules for creating keystone jacks / solids resulting in a better fit and an improved code footprint
+	- Imported jack "A/V - Banana Plug With Border"
+- New Full Plate types from "Customizable Switch or Outlet Wall Plate" (https://www.thingiverse.com/thing:3840723) by pete2585
+	- Power - Outlet - Despard Single
+	- Power - Outlet - Despard Double
+	- Power - Outlet - Despard Triple
+	- Lighting - Pushbutton Pair
+	- Lighting - Rotary Dimmer / Fan Control
 Changed:
-	- Modularized duplex outlet hole creation to further improve code footprint
-	- Removed version number from header comment since the Change Log here effectively communicates that information now.
-	- Separated menu items out to individual menus according to whether they are a "Full Plate" or "Mixed Plate" option.
-	- Split creation of solids out from PlateDoHoles() and into PlateDoSolids() to allow for more efficient code
-	- Label handling is no longer tied to each individual jack; you can now place up to 40 anywhere on the plate, each with its own settings for font, size, angle and cut depth.
-	- Variable names have been altered for greater code readability.
+- Modularized duplex outlet hole creation to further improve code footprint
+- Removed version number from header comment since the Change Log here effectively communicates that information now.
+- Separated menu items out to individual menus according to whether they are a "Full Plate" or "Mixed Plate" option.
+- Split creation of solids out from PlateDoHoles() and into PlateDoSolids() to allow for more efficient code
+- Label handling is no longer tied to each individual jack; you can now place up to 40 anywhere on the plate, each with its own settings for font, size, angle and cut depth.
+- Variable names have been altered for greater code readability.
+
 Fixed:
-	- All cubes comprising SolidKeystone now render correctly (one was missing previously)
-	- Made Labels applied last to the final plate so that solids do not interfere with Label cutouts
-	- Trimmed some unused variables
+- All cubes comprising SolidKeystone now render correctly (one was missing previously)
+- Made Labels applied last to the final plate so that solids do not interfere with Label cutouts
+- Trimmed some unused variables
 
 
 v1.6 - Mercury0x0d - 8/17/2022
