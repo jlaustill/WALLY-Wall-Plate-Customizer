@@ -5,6 +5,7 @@
 Change Log:
 
 v1.7 - Mercury0x0d - 8/24/2022
+
 Added:
 - Completely rewrote the jack layout engine
 	- Mixed Plate layouts can now handle up to three rows of jacks
