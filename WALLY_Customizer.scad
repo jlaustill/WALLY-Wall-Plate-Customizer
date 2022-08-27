@@ -11,7 +11,7 @@
 
 	Change Log:
 
-	v1.7 - Mercury0x0d - 8/24/2022
+	v1.7 - Mercury0x0d - 8/24/2022 - Developed in OpenSCAD 2021.01
 	Added:
 		- Completely rewrote the jack layout engine:
 			- Mixed Plate layouts can now handle up to three rows of jacks
@@ -27,16 +27,19 @@
 			- Power - Outlet - Despard Triple
 			- Lighting - Pushbutton Pair
 			- Lighting - Rotary Dimmer / Fan Control
+
 	Changed:
 		- Modularized duplex outlet hole creation to further improve code footprint
 		- Removed version number from header comment since the Change Log here effectively communicates that information now.
 		- Separated menu items out to individual menus according to whether they are a "Full Plate" or "Mixed Plate" option.
 		- Split creation of solids out from PlateDoHoles() and into PlateDoSolids() to allow for more efficient code
-		- Label handling is no longer tied to each individual jack; you can now place up to 40 anywhere on the plate, each with its own settings for font, size, angle and cut depth.
+		- Label handling is no longer tied to each individual jack; you can now place as many Labels as you like, anywhere on the plate, each with its own settings for font, size, angle and cut depth!
 		- Variable names have been altered for greater code readability.
+
 	Fixed:
 		- All cubes comprising SolidKeystone now render correctly (one was missing previously)
-		- Made Labels applied last to the final plate so that solids do not interfere with Label cutouts
+		- Cylinder Quality now defaults to 64 (half) instead of 128 (maximum)
+		- Labels are now the last step of plate creation to ensure that solids do not interfere with the text cutouts
 		- Trimmed some unused variables
 
 
@@ -82,13 +85,13 @@
 
 /* [Plate Specifications] */
 // How many gangs will this plate have?
-plate_width = 1;								// [1:5]
+Plate_Width = 1;								// [1:5]
 
 // Overall plate size
-plate_size = 0;									// [0:Standard - 4.5 inch / 114.3 mm height, 1:Junior-Jumbo - 4.875 inch / 123.825 mm height, 2:Jumbo - 5.25 inch / 133.35 mm height]
+Plate_Size = 0;									// [0:Standard - 4.5 inch / 114.3 mm height, 1:Junior-Jumbo - 4.875 inch / 123.825 mm height, 2:Jumbo - 5.25 inch / 133.35 mm height]
 
 // Set smoothness of curves and holes.
-cylinder_quality = 128;							// [1:128]
+Cylinder_Quality = 64;							// [16:128]
 
 
 
@@ -96,7 +99,7 @@ cylinder_quality = 128;							// [1:128]
 
 /* [Gang 1 Settings] */
 // Full plate selection; overrides any other selections for this gang
-Gang_1_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
+Gang_1_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "NEMA-L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
 
 // Fine-tune row padding
 Gang_1_Row_Pitch_Adjust = 0;					// [-4:16]
@@ -115,7 +118,7 @@ Gang_1_Row_3 = "none";							// ["none": None, "blank": Blank Port, "bananaJackS
 
 
 /* [Gang 2 Settings] */
-Gang_2_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
+Gang_2_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "NEMA-L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
 
 // Fine-tune row padding
 Gang_2_Row_Pitch_Adjust = 0;					// [-4:16]
@@ -134,7 +137,7 @@ Gang_2_Row_3 = "none";							// ["none": None, "blank": Blank Port, "bananaJackS
 
 
 /* [Gang 3 Settings] */
-Gang_3_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
+Gang_3_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "NEMA-L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
 
 // Fine-tune row padding
 Gang_3_Row_Pitch_Adjust = 0;					// [-4:16]
@@ -153,7 +156,7 @@ Gang_3_Row_3 = "none";							// ["none": None, "blank": Blank Port, "bananaJackS
 
 
 /* [Gang 4 Settings] */
-Gang_4_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
+Gang_4_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "NEMA-L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
 
 // Fine-tune row padding
 Gang_4_Row_Pitch_Adjust = 0;					// [-4:16]
@@ -172,7 +175,7 @@ Gang_4_Row_3 = "none";							// ["none": None, "blank": Blank Port, "bananaJackS
 
 
 /* [Gang 5 Settings] */
-Gang_5_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
+Gang_5_Full_Plate = "none";						// ["none": None, "button": Lighting - Pushbutton Pair, "rocker": Lighting - Rocker / Paddle / Leviton 'Decora', "rotary": Lighting - Rotary Dimmer / Fan Control, "toggle": Lighting - Toggle Switch, "long_toggle": Lighting - Toggle Switch - Long, "NEMA-L5-30P": Power - NEMA L5-30P, "outletDespardSingle": Power - Outlet - Despard Single, "outletDespardDouble": Power - Outlet - Despard Double, "outletDespardTriple": Power - Outlet - Despard Triple, "outletDuplex": Power - Outlet - Duplex]
 
 // Fine-tune row padding
 Gang_5_Row_Pitch_Adjust = 0;					// [-4:16]
@@ -191,435 +194,43 @@ Gang_5_Row_3 = "none";							// ["none": None, "blank": Blank Port, "bananaJackS
 
 
 /* [Label Settings] */
-Label_01_Text = "";
-Label_01_Font = "Liberation Mono";
-Label_01_Size = 4;									// [1:16]
-Label_01_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_01_X = 0;										// [0:256]
-Label_01_Y = 0;										// [-64:64]
-Label_01_Cut_Depth = 2;								// [0:0.5:2]
-Label_01_Angle = 0;									// [0:359]
+Label_Text		= ["", "", "", "", ""];
+Label_Font		= ["Liberation Mono", "Liberation Mono", "Liberation Mono", "Liberation Mono", "Liberation Mono"];
+Label_Size		= [4, 4, 4, 4, 4];
+Label_X			= [-1, -2, -3, -4, -5];
+Label_Y			= [0, 0, 0, 0, 0];
+Label_Cut_Depth	= [2, 2, 2, 2, 2];
+Label_Angle		= [0, 0, 0, 0, 0];
 
 
-Label_02_Text = "";
-Label_02_Font = "Liberation Mono";
-Label_02_Size = 4;									// [1:16]
-Label_02_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_02_X = 0;										// [0:256]
-Label_02_Y = 0;										// [-64:64]
-Label_02_Cut_Depth = 2;								// [0:0.5:2]
-Label_02_Angle = 0;									// [0:359]
 
 
-Label_03_Text = "";
-Label_03_Font = "Liberation Mono";
-Label_03_Size = 4;									// [1:16]
-Label_03_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_03_X = 0;										// [0:256]
-Label_03_Y = 0;										// [-64:64]
-Label_03_Cut_Depth = 2;								// [0:0.5:2]
-Label_03_Angle = 0;									// [0:359]
 
 
-Label_04_Text = "";
-Label_04_Font = "Liberation Mono";
-Label_04_Size = 4;									// [1:16]
-Label_04_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_04_X = 0;										// [0:256]
-Label_04_Y = 0;										// [-64:64]
-Label_04_Cut_Depth = 2;								// [0:0.5:2]
-Label_04_Angle = 0;									// [0:359]
 
 
-Label_05_Text = "";
-Label_05_Font = "Liberation Mono";
-Label_05_Size = 4;									// [1:16]
-Label_05_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_05_X = 0;										// [0:256]
-Label_05_Y = 0;										// [-64:64]
-Label_05_Cut_Depth = 2;								// [0:0.5:2]
-Label_05_Angle = 0;									// [0:359]
 
 
-Label_06_Text = "";
-Label_06_Font = "Liberation Mono";
-Label_06_Size = 4;									// [1:16]
-Label_06_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_06_X = 0;										// [0:256]
-Label_06_Y = 0;										// [-64:64]
-Label_06_Cut_Depth = 2;								// [0:0.5:2]
-Label_06_Angle = 0;									// [0:359]
 
 
-Label_07_Text = "";
-Label_07_Font = "Liberation Mono";
-Label_07_Size = 4;									// [1:16]
-Label_07_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_07_X = 0;										// [0:256]
-Label_07_Y = 0;										// [-64:64]
-Label_07_Cut_Depth = 2;								// [0:0.5:2]
-Label_07_Angle = 0;									// [0:359]
-
-
-Label_08_Text = "";
-Label_08_Font = "Liberation Mono";
-Label_08_Size = 4;									// [1:16]
-Label_08_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_08_X = 0;										// [0:256]
-Label_08_Y = 0;										// [-64:64]
-Label_08_Cut_Depth = 2;								// [0:0.5:2]
-Label_08_Angle = 0;									// [0:359]
-
-
-Label_09_Text = "";
-Label_09_Font = "Liberation Mono";
-Label_09_Size = 4;									// [1:16]
-Label_09_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_09_X = 0;										// [0:256]
-Label_09_Y = 0;										// [-64:64]
-Label_09_Cut_Depth = 2;								// [0:0.5:2]
-Label_09_Angle = 0;									// [0:359]
-
-
-Label_10_Text = "";
-Label_10_Font = "Liberation Mono";
-Label_10_Size = 4;									// [1:16]
-Label_10_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_10_X = 0;										// [0:256]
-Label_10_Y = 0;										// [-64:64]
-Label_10_Cut_Depth = 2;								// [0:0.5:2]
-Label_10_Angle = 0;									// [0:359]
-
-
-Label_11_Text = "";
-Label_11_Font = "Liberation Mono";
-Label_11_Size = 4;									// [1:16]
-Label_11_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_11_X = 0;										// [0:256]
-Label_11_Y = 0;										// [-64:64]
-Label_11_Cut_Depth = 2;								// [0:0.5:2]
-Label_11_Angle = 0;									// [0:359]
-
-
-Label_12_Text = "";
-Label_12_Font = "Liberation Mono";
-Label_12_Size = 4;									// [1:16]
-Label_12_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_12_X = 0;										// [0:256]
-Label_12_Y = 0;										// [-64:64]
-Label_12_Cut_Depth = 2;								// [0:0.5:2]
-Label_12_Angle = 0;									// [0:359]
-
-
-Label_13_Text = "";
-Label_13_Font = "Liberation Mono";
-Label_13_Size = 4;									// [1:16]
-Label_13_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_13_X = 0;										// [0:256]
-Label_13_Y = 0;										// [-64:64]
-Label_13_Cut_Depth = 2;								// [0:0.5:2]
-Label_13_Angle = 0;									// [0:359]
-
-
-Label_14_Text = "";
-Label_14_Font = "Liberation Mono";
-Label_14_Size = 4;									// [1:16]
-Label_14_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_14_X = 0;										// [0:256]
-Label_14_Y = 0;										// [-64:64]
-Label_14_Cut_Depth = 2;								// [0:0.5:2]
-Label_14_Angle = 0;									// [0:359]
-
-
-Label_15_Text = "";
-Label_15_Font = "Liberation Mono";
-Label_15_Size = 4;									// [1:16]
-Label_15_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_15_X = 0;										// [0:256]
-Label_15_Y = 0;										// [-64:64]
-Label_15_Cut_Depth = 2;								// [0:0.5:2]
-Label_15_Angle = 0;									// [0:359]
-
-
-Label_16_Text = "";
-Label_16_Font = "Liberation Mono";
-Label_16_Size = 4;									// [1:16]
-Label_16_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_16_X = 0;										// [0:256]
-Label_16_Y = 0;										// [-64:64]
-Label_16_Cut_Depth = 2;								// [0:0.5:2]
-Label_16_Angle = 0;									// [0:359]
-
-
-Label_17_Text = "";
-Label_17_Font = "Liberation Mono";
-Label_17_Size = 4;									// [1:16]
-Label_17_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_17_X = 0;										// [0:256]
-Label_17_Y = 0;										// [-64:64]
-Label_17_Cut_Depth = 2;								// [0:0.5:2]
-Label_17_Angle = 0;									// [0:359]
-
-
-Label_18_Text = "";
-Label_18_Font = "Liberation Mono";
-Label_18_Size = 4;									// [1:16]
-Label_18_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_18_X = 0;										// [0:256]
-Label_18_Y = 0;										// [-64:64]
-Label_18_Cut_Depth = 2;								// [0:0.5:2]
-Label_18_Angle = 0;									// [0:359]
-
-
-Label_19_Text = "";
-Label_19_Font = "Liberation Mono";
-Label_19_Size = 4;									// [1:16]
-Label_19_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_19_X = 0;										// [0:256]
-Label_19_Y = 0;										// [-64:64]
-Label_19_Cut_Depth = 2;								// [0:0.5:2]
-Label_19_Angle = 0;									// [0:359]
-
-
-Label_20_Text = "";
-Label_20_Font = "Liberation Mono";
-Label_20_Size = 4;									// [1:16]
-Label_20_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_20_X = 0;										// [0:256]
-Label_20_Y = 0;										// [-64:64]
-Label_20_Cut_Depth = 2;								// [0:0.5:2]
-Label_20_Angle = 0;									// [0:359]
-
-
-Label_21_Text = "";
-Label_21_Font = "Liberation Mono";
-Label_21_Size = 4;									// [1:16]
-Label_21_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_21_X = 0;										// [0:256]
-Label_21_Y = 0;										// [-64:64]
-Label_21_Cut_Depth = 2;								// [0:0.5:2]
-Label_21_Angle = 0;									// [0:359]
-
-
-Label_22_Text = "";
-Label_22_Font = "Liberation Mono";
-Label_22_Size = 4;									// [1:16]
-Label_22_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_22_X = 0;										// [0:256]
-Label_22_Y = 0;										// [-64:64]
-Label_22_Cut_Depth = 2;								// [0:0.5:2]
-Label_22_Angle = 0;									// [0:359]
-
-
-Label_23_Text = "";
-Label_23_Font = "Liberation Mono";
-Label_23_Size = 4;									// [1:16]
-Label_23_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_23_X = 0;										// [0:256]
-Label_23_Y = 0;										// [-64:64]
-Label_23_Cut_Depth = 2;								// [0:0.5:2]
-Label_23_Angle = 0;									// [0:359]
-
-
-Label_24_Text = "";
-Label_24_Font = "Liberation Mono";
-Label_24_Size = 4;									// [1:16]
-Label_24_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_24_X = 0;										// [0:256]
-Label_24_Y = 0;										// [-64:64]
-Label_24_Cut_Depth = 2;								// [0:0.5:2]
-Label_24_Angle = 0;									// [0:359]
-
-
-Label_25_Text = "";
-Label_25_Font = "Liberation Mono";
-Label_25_Size = 4;									// [1:16]
-Label_25_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_25_X = 0;										// [0:256]
-Label_25_Y = 0;										// [-64:64]
-Label_25_Cut_Depth = 2;								// [0:0.5:2]
-Label_25_Angle = 0;									// [0:359]
-
-
-Label_26_Text = "";
-Label_26_Font = "Liberation Mono";
-Label_26_Size = 4;									// [1:16]
-Label_26_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_26_X = 0;										// [0:256]
-Label_26_Y = 0;										// [-64:64]
-Label_26_Cut_Depth = 2;								// [0:0.5:2]
-Label_26_Angle = 0;									// [0:359]
-
-
-Label_27_Text = "";
-Label_27_Font = "Liberation Mono";
-Label_27_Size = 4;									// [1:16]
-Label_27_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_27_X = 0;										// [0:256]
-Label_27_Y = 0;										// [-64:64]
-Label_27_Cut_Depth = 2;								// [0:0.5:2]
-Label_27_Angle = 0;									// [0:359]
-
-
-Label_28_Text = "";
-Label_28_Font = "Liberation Mono";
-Label_28_Size = 4;									// [1:16]
-Label_28_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_28_X = 0;										// [0:256]
-Label_28_Y = 0;										// [-64:64]
-Label_28_Cut_Depth = 2;								// [0:0.5:2]
-Label_28_Angle = 0;									// [0:359]
-
-
-Label_29_Text = "";
-Label_29_Font = "Liberation Mono";
-Label_29_Size = 4;									// [1:16]
-Label_29_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_29_X = 0;										// [0:256]
-Label_29_Y = 0;										// [-64:64]
-Label_29_Cut_Depth = 2;								// [0:0.5:2]
-Label_29_Angle = 0;									// [0:359]
-
-
-Label_30_Text = "";
-Label_30_Font = "Liberation Mono";
-Label_30_Size = 4;									// [1:16]
-Label_30_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_30_X = 0;										// [0:256]
-Label_30_Y = 0;										// [-64:64]
-Label_30_Cut_Depth = 2;								// [0:0.5:2]
-Label_30_Angle = 0;									// [0:359]
-
-
-Label_31_Text = "";
-Label_31_Font = "Liberation Mono";
-Label_31_Size = 4;									// [1:16]
-Label_31_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_31_X = 0;										// [0:256]
-Label_31_Y = 0;										// [-64:64]
-Label_31_Cut_Depth = 2;								// [0:0.5:2]
-Label_31_Angle = 0;									// [0:359]
-
-
-Label_32_Text = "";
-Label_32_Font = "Liberation Mono";
-Label_32_Size = 4;									// [1:16]
-Label_32_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_32_X = 0;										// [0:256]
-Label_32_Y = 0;										// [-64:64]
-Label_32_Cut_Depth = 2;								// [0:0.5:2]
-Label_32_Angle = 0;									// [0:359]
-
-
-Label_33_Text = "";
-Label_33_Font = "Liberation Mono";
-Label_33_Size = 4;									// [1:16]
-Label_33_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_33_X = 0;										// [0:256]
-Label_33_Y = 0;										// [-64:64]
-Label_33_Cut_Depth = 2;								// [0:0.5:2]
-Label_33_Angle = 0;									// [0:359]
-
-
-Label_34_Text = "";
-Label_34_Font = "Liberation Mono";
-Label_34_Size = 4;									// [1:16]
-Label_34_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_34_X = 0;										// [0:256]
-Label_34_Y = 0;										// [-64:64]
-Label_34_Cut_Depth = 2;								// [0:0.5:2]
-Label_34_Angle = 0;									// [0:359]
-
-
-Label_35_Text = "";
-Label_35_Font = "Liberation Mono";
-Label_35_Size = 4;									// [1:16]
-Label_35_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_35_X = 0;										// [0:256]
-Label_35_Y = 0;										// [-64:64]
-Label_35_Cut_Depth = 2;								// [0:0.5:2]
-Label_35_Angle = 0;									// [0:359]
-
-
-Label_36_Text = "";
-Label_36_Font = "Liberation Mono";
-Label_36_Size = 4;									// [1:16]
-Label_36_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_36_X = 0;										// [0:256]
-Label_36_Y = 0;										// [-64:64]
-Label_36_Cut_Depth = 2;								// [0:0.5:2]
-Label_36_Angle = 0;									// [0:359]
-
-
-Label_37_Text = "";
-Label_37_Font = "Liberation Mono";
-Label_37_Size = 4;									// [1:16]
-Label_37_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_37_X = 0;										// [0:256]
-Label_37_Y = 0;										// [-64:64]
-Label_37_Cut_Depth = 2;								// [0:0.5:2]
-Label_37_Angle = 0;									// [0:359]
-
-
-Label_38_Text = "";
-Label_38_Font = "Liberation Mono";
-Label_38_Size = 4;									// [1:16]
-Label_38_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_38_X = 0;										// [0:256]
-Label_38_Y = 0;										// [-64:64]
-Label_38_Cut_Depth = 2;								// [0:0.5:2]
-Label_38_Angle = 0;									// [0:359]
-
-
-Label_39_Text = "";
-Label_39_Font = "Liberation Mono";
-Label_39_Size = 4;									// [1:16]
-Label_39_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_39_X = 0;										// [0:256]
-Label_39_Y = 0;										// [-64:64]
-Label_39_Cut_Depth = 2;								// [0:0.5:2]
-Label_39_Angle = 0;									// [0:359]
-
-
-Label_40_Text = "";
-Label_40_Font = "Liberation Mono";
-Label_40_Size = 4;									// [1:16]
-Label_40_X_Method = "1";							// ["1": Centered at Gang 1, "2": Centered at Gang 2, "3": Centered at Gang 3, "4": Centered at Gang 4, "5": Centered at Gang 5, "0": Free-floating]
-Label_40_X = 0;										// [0:256]
-Label_40_Y = 0;										// [-64:64]
-Label_40_Cut_Depth = 2;								// [0:0.5:2]
-Label_40_Angle = 0;									// [0:359]
-
-
-
-
-
-module CustomizerBegone()
-{
-	// This module is here to stop Customizer from picking up the variables below
-}
-
-
-
-
-
+/* [Hidden] */
 // Define some gGlobals
 rowPitchList = [Gang_1_Row_Pitch_Adjust, Gang_2_Row_Pitch_Adjust, Gang_3_Row_Pitch_Adjust, Gang_4_Row_Pitch_Adjust, Gang_5_Row_Pitch_Adjust];
 
 l_offset = [34.925, 39.6875, 44.45];
 r_offset = [34.925, 39.6875, 44.45];
 spacer = [0, 0, 46.0375, 92.075, 138.1125, 184.15];
-solid_plate_width = l_offset[plate_size] + spacer[plate_width] + r_offset[plate_size];
+solid_Plate_Width = l_offset[Plate_Size] + spacer[Plate_Width] + r_offset[Plate_Size];
 
 height_sizes = [114.3, 123.825, 133.35];
 
-kEdgeWidth = solid_plate_width + 10; // Bevel setting for top and bottom
-kRightBevel = solid_plate_width - 4; // Bevel for right side (scales)
+kEdgeWidth = solid_Plate_Width + 10; // Bevel setting for top and bottom
+kRightBevel = solid_Plate_Width - 4; // Bevel for right side (scales)
 
 kSwitchOffset = 46.0375; // Offset all additional holes
 kThinnerOffset = [0, 0.92, 0.95, 0.96, 0.97, 0.973]; // Manual fix for right side wackiness
 
-kMiddleLine = height_sizes[plate_size] / 2;
+kMiddleLine = height_sizes[Plate_Size] / 2;
 
 // "gPlates" is a global list of all the "Full Plate" options which are selected
 gPlates = [Gang_1_Full_Plate, Gang_2_Full_Plate, Gang_3_Full_Plate, Gang_4_Full_Plate, Gang_5_Full_Plate];
@@ -635,49 +246,7 @@ gPlateRows =
 ];
 
 // create a list of all the Label settings
-gTextLabels =
-[
-	[Label_01_Text, Label_01_Font, Label_01_Size, Label_01_X_Method, Label_01_X, Label_01_Y, Label_01_Cut_Depth, Label_01_Angle],
-	[Label_02_Text, Label_02_Font, Label_02_Size, Label_02_X_Method, Label_02_X, Label_02_Y, Label_02_Cut_Depth, Label_02_Angle],
-	[Label_03_Text, Label_03_Font, Label_03_Size, Label_03_X_Method, Label_03_X, Label_03_Y, Label_03_Cut_Depth, Label_03_Angle],
-	[Label_04_Text, Label_04_Font, Label_04_Size, Label_04_X_Method, Label_04_X, Label_04_Y, Label_04_Cut_Depth, Label_04_Angle],
-	[Label_05_Text, Label_05_Font, Label_05_Size, Label_05_X_Method, Label_05_X, Label_05_Y, Label_05_Cut_Depth, Label_05_Angle],
-	[Label_06_Text, Label_06_Font, Label_06_Size, Label_06_X_Method, Label_06_X, Label_06_Y, Label_06_Cut_Depth, Label_06_Angle],
-	[Label_07_Text, Label_07_Font, Label_07_Size, Label_07_X_Method, Label_07_X, Label_07_Y, Label_07_Cut_Depth, Label_07_Angle],
-	[Label_08_Text, Label_08_Font, Label_08_Size, Label_08_X_Method, Label_08_X, Label_08_Y, Label_08_Cut_Depth, Label_08_Angle],
-	[Label_09_Text, Label_09_Font, Label_09_Size, Label_09_X_Method, Label_09_X, Label_09_Y, Label_09_Cut_Depth, Label_09_Angle],
-	[Label_10_Text, Label_10_Font, Label_10_Size, Label_10_X_Method, Label_10_X, Label_10_Y, Label_10_Cut_Depth, Label_10_Angle],
-	[Label_11_Text, Label_11_Font, Label_11_Size, Label_11_X_Method, Label_11_X, Label_11_Y, Label_11_Cut_Depth, Label_11_Angle],
-	[Label_12_Text, Label_12_Font, Label_12_Size, Label_12_X_Method, Label_12_X, Label_12_Y, Label_12_Cut_Depth, Label_12_Angle],
-	[Label_13_Text, Label_13_Font, Label_13_Size, Label_13_X_Method, Label_13_X, Label_13_Y, Label_13_Cut_Depth, Label_13_Angle],
-	[Label_14_Text, Label_14_Font, Label_14_Size, Label_14_X_Method, Label_14_X, Label_14_Y, Label_14_Cut_Depth, Label_14_Angle],
-	[Label_15_Text, Label_15_Font, Label_15_Size, Label_15_X_Method, Label_15_X, Label_15_Y, Label_15_Cut_Depth, Label_15_Angle],
-	[Label_16_Text, Label_16_Font, Label_16_Size, Label_16_X_Method, Label_16_X, Label_16_Y, Label_16_Cut_Depth, Label_16_Angle],
-	[Label_17_Text, Label_17_Font, Label_17_Size, Label_17_X_Method, Label_17_X, Label_17_Y, Label_17_Cut_Depth, Label_17_Angle],
-	[Label_18_Text, Label_18_Font, Label_18_Size, Label_18_X_Method, Label_18_X, Label_18_Y, Label_18_Cut_Depth, Label_18_Angle],
-	[Label_19_Text, Label_19_Font, Label_19_Size, Label_19_X_Method, Label_19_X, Label_19_Y, Label_19_Cut_Depth, Label_19_Angle],
-	[Label_20_Text, Label_20_Font, Label_20_Size, Label_20_X_Method, Label_20_X, Label_10_Y, Label_20_Cut_Depth, Label_20_Angle],
-	[Label_21_Text, Label_21_Font, Label_21_Size, Label_21_X_Method, Label_21_X, Label_01_Y, Label_21_Cut_Depth, Label_21_Angle],
-	[Label_22_Text, Label_22_Font, Label_22_Size, Label_22_X_Method, Label_22_X, Label_02_Y, Label_22_Cut_Depth, Label_22_Angle],
-	[Label_23_Text, Label_23_Font, Label_23_Size, Label_23_X_Method, Label_23_X, Label_03_Y, Label_23_Cut_Depth, Label_23_Angle],
-	[Label_24_Text, Label_24_Font, Label_24_Size, Label_24_X_Method, Label_24_X, Label_04_Y, Label_24_Cut_Depth, Label_24_Angle],
-	[Label_25_Text, Label_25_Font, Label_25_Size, Label_25_X_Method, Label_25_X, Label_05_Y, Label_25_Cut_Depth, Label_25_Angle],
-	[Label_26_Text, Label_26_Font, Label_26_Size, Label_26_X_Method, Label_26_X, Label_06_Y, Label_26_Cut_Depth, Label_26_Angle],
-	[Label_27_Text, Label_27_Font, Label_27_Size, Label_27_X_Method, Label_27_X, Label_07_Y, Label_27_Cut_Depth, Label_27_Angle],
-	[Label_28_Text, Label_28_Font, Label_28_Size, Label_28_X_Method, Label_28_X, Label_08_Y, Label_28_Cut_Depth, Label_28_Angle],
-	[Label_29_Text, Label_29_Font, Label_29_Size, Label_29_X_Method, Label_29_X, Label_09_Y, Label_29_Cut_Depth, Label_29_Angle],
-	[Label_30_Text, Label_30_Font, Label_30_Size, Label_30_X_Method, Label_30_X, Label_30_Y, Label_30_Cut_Depth, Label_30_Angle],
-	[Label_31_Text, Label_31_Font, Label_31_Size, Label_31_X_Method, Label_31_X, Label_31_Y, Label_31_Cut_Depth, Label_31_Angle],
-	[Label_32_Text, Label_32_Font, Label_32_Size, Label_32_X_Method, Label_32_X, Label_32_Y, Label_32_Cut_Depth, Label_32_Angle],
-	[Label_33_Text, Label_33_Font, Label_33_Size, Label_33_X_Method, Label_33_X, Label_33_Y, Label_33_Cut_Depth, Label_33_Angle],
-	[Label_34_Text, Label_34_Font, Label_34_Size, Label_34_X_Method, Label_34_X, Label_34_Y, Label_34_Cut_Depth, Label_34_Angle],
-	[Label_35_Text, Label_35_Font, Label_35_Size, Label_35_X_Method, Label_35_X, Label_35_Y, Label_35_Cut_Depth, Label_35_Angle],
-	[Label_36_Text, Label_36_Font, Label_36_Size, Label_36_X_Method, Label_36_X, Label_36_Y, Label_36_Cut_Depth, Label_36_Angle],
-	[Label_37_Text, Label_37_Font, Label_37_Size, Label_37_X_Method, Label_37_X, Label_37_Y, Label_37_Cut_Depth, Label_37_Angle],
-	[Label_38_Text, Label_38_Font, Label_38_Size, Label_38_X_Method, Label_38_X, Label_38_Y, Label_38_Cut_Depth, Label_38_Angle],
-	[Label_39_Text, Label_39_Font, Label_39_Size, Label_39_X_Method, Label_39_X, Label_39_Y, Label_39_Cut_Depth, Label_39_Angle],
-	[Label_40_Text, Label_40_Font, Label_40_Size, Label_40_X_Method, Label_40_X, Label_40_Y, Label_40_Cut_Depth, Label_40_Angle]
-];
+gTextLabels = [Label_Text, Label_Font, Label_Size, Label_X, Label_Y, Label_Cut_Depth, Label_Angle];
 
 // this helps plot jack locations for Mixed Plate options
 gYOffsets =
@@ -707,11 +276,10 @@ kKeystoneColumnOffset = 11.5;
 kLabelText = 0;
 kLabelFont = 1;
 kLabelSize = 2;
-kLabelXMethod = 3;
-kLabelX = 4;
-kLabelY = 5;
-kLabelCutDepth = 6;
-kLabelAngle = 7;
+kLabelX = 3;
+kLabelY = 4;
+kLabelCutDepth = 5;
+kLabelAngle = 6;
 
 // Pushbutton-related konstants
 kPushbuttonDiameter = 13.081;
@@ -727,7 +295,7 @@ kPushbuttonOffset = 11.7094;
 rotate([0, 0, -90])
 {
 	// put plate at 0, 0, 0 for easier printing
-	translate([-kMiddleLine, -solid_plate_width / 2, -6])
+	translate([-kMiddleLine, -solid_Plate_Width / 2, -6])
 	{
 		difference()
 		{
@@ -739,7 +307,7 @@ rotate([0, 0, -90])
 					PlateBaseCreate();
 					translate([0, 0, -3]) PlateDoInner();
 
-					for (plateIndex = [0:plate_width - 1])
+					for (plateIndex = [0:Plate_Width - 1])
 					{
 						PlateBuild(plateIndex);
 						PlateDoScrews(plateIndex);
@@ -748,7 +316,7 @@ rotate([0, 0, -90])
 
 				union()
 				{
-					for (plateIndex = [0:plate_width - 1])
+					for (plateIndex = [0:Plate_Width - 1])
 					{
 						PlateDoSolids(plateIndex);
 					}
@@ -768,7 +336,7 @@ rotate([0, 0, -90])
 
 module HoleBananaJack(x, y)
 {
-	translate([y, x, 0]) cylinder(r = 4.7625, h = 10, center = true, $fn = cylinder_quality);
+	translate([y, x, 0]) cylinder(r = 4.7625, h = 10, center = true, $fn = Cylinder_Quality);
 }
 
 
@@ -825,7 +393,7 @@ module HoleDespard()
 {
 	intersection()
 	{
-		cylinder(h = 14, d = kDespardDiameter, $fn = cylinder_quality);
+		cylinder(h = 14, d = kDespardDiameter, $fn = Cylinder_Quality);
 		cube([kDespardBoundRectHeight, 40, 14], center = true);
 	}
 }
@@ -851,7 +419,7 @@ module HoleOutlet()
 {
 	difference()
 	{
-		cylinder(r = 17.4625, h = 15, center = true, $fn = cylinder_quality);
+		cylinder(r = 17.4625, h = 15, center = true, $fn = Cylinder_Quality);
 		translate([-24.2875, -15, -2]) cube([10, 37, 15], center = false);
 		translate([14.2875, -15, -2]) cube([10, 37, 15], center = false);
 	}
@@ -866,11 +434,11 @@ module PlateBaseCreate()
 	//Plate size and bevel
 	difference()
 	{
-		cube([height_sizes[plate_size], solid_plate_width, 6]);
+		cube([height_sizes[Plate_Size], solid_Plate_Width, 6]);
 		translate([-4.3, -5, 6.2]) rotate([0, 45, 0]) cube([6, kEdgeWidth, 6]); //Top Bevel
-		translate([height_sizes[plate_size] - 4.2, -5, 6.25]) rotate([0, 45, 0]) cube([6, kEdgeWidth, 6]); //Bottom Bevel
-		translate([height_sizes[plate_size] + 10, -4.4, 6.1]) rotate([0, 45, 90]) cube([6, height_sizes[plate_size] + 20, 6]); //Left Bevel (doesn't change)
-		translate([height_sizes[plate_size] + 10, kRightBevel, 6]) rotate([0, 45, 90]) cube([6, height_sizes[plate_size] + 10, 6]); //Right Bevel (scales right)
+		translate([height_sizes[Plate_Size] - 4.2, -5, 6.25]) rotate([0, 45, 0]) cube([6, kEdgeWidth, 6]); //Bottom Bevel
+		translate([height_sizes[Plate_Size] + 10, -4.4, 6.1]) rotate([0, 45, 90]) cube([6, height_sizes[Plate_Size] + 20, 6]); //Left Bevel (doesn't change)
+		translate([height_sizes[Plate_Size] + 10, kRightBevel, 6]) rotate([0, 45, 90]) cube([6, height_sizes[Plate_Size] + 10, 6]); //Right Bevel (scales right)
 	}
 }
 
@@ -881,13 +449,13 @@ module PlateBaseCreate()
 module PlateBuild(plateIndex)
 {
 	// handle all "full plate" options first
-	x = l_offset[plate_size] + kSwitchOffset * plateIndex;
+	x = l_offset[Plate_Size] + kSwitchOffset * plateIndex;
 	rowPitch = rowPitchList[plateIndex];
 
 	if (gPlates[plateIndex] != "none")
 	{
 		// do the hole cutouts
-		translate([0, l_offset[plate_size] + kSwitchOffset * plateIndex, 0]) PlateDoHoles(gPlates[plateIndex]);
+		translate([0, l_offset[Plate_Size] + kSwitchOffset * plateIndex, 0]) PlateDoHoles(gPlates[plateIndex]);
 	} else {
 		// If we get here, we're not doing "Full Plate" mode, so we build the plate from the individual row selections
 		selections = len(gPlateRows[plateIndex]);
@@ -929,9 +497,9 @@ module PlateDoHoles(hole_type)
 	// Hole Cutout definitions
 	if (hole_type == "blank") {}
 
-	if (hole_type == "L5-30P")
+	if (hole_type == "NEMA-L5-30P")
 	{
-		translate([kMiddleLine, 0, 0]) cylinder(d = 35.5, h = 500, center = true, $fn = cylinder_quality);
+		translate([kMiddleLine, 0, 0]) cylinder(d = 35.5, h = 500, center = true, $fn = Cylinder_Quality);
 	}
 
 	if (hole_type == "toggle")
@@ -951,13 +519,13 @@ module PlateDoHoles(hole_type)
 
 	if (hole_type == "button")
 	{
-		translate([kMiddleLine - kPushbuttonOffset, 0, 0]) cylinder(h = 7, d = kPushbuttonDiameter, $fn = cylinder_quality);
-		translate([kMiddleLine + kPushbuttonOffset, 0, 0]) cylinder(h = 7, d = kPushbuttonDiameter, $fn = cylinder_quality);
+		translate([kMiddleLine - kPushbuttonOffset, 0, 0]) cylinder(h = 7, d = kPushbuttonDiameter, $fn = Cylinder_Quality);
+		translate([kMiddleLine + kPushbuttonOffset, 0, 0]) cylinder(h = 7, d = kPushbuttonDiameter, $fn = Cylinder_Quality);
 	}
 
 	if (hole_type == "rotary")
 	{
-		translate([kMiddleLine, 0, 0]) cylinder(r = 5, h = 7, $fn = cylinder_quality);
+		translate([kMiddleLine, 0, 0]) cylinder(r = 5, h = 7, $fn = Cylinder_Quality);
 	}
 
 	if (hole_type == "outletDuplex")
@@ -998,8 +566,8 @@ module PlateDoHoles(hole_type)
 	{
 		// VGA Fits http://www.datapro.net/products/vga-dual-panel-mount-f-f-cable.html
 		// DB09 Fits http://www.datapro.net/products/db9-serial-panel-mount-male-extension.html
-		translate([0, -12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		difference()
 		{
 			cube([10, 19, 13], center = true);
@@ -1015,24 +583,24 @@ module PlateDoHoles(hole_type)
 	if (hole_type == "hdmi")
 	{
 		// Fits http://www.datapro.net/products/hdmi-panel-mount-extension-cable.html
-		translate([0, -13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		translate([0, 0, 3]) cube([6, 16, 10], center = true);
 	}
 
 	if (hole_type == "dvi")
 	{
 		// Fits http://www.datapro.net/products/dvi-i-panel-mount-extension-cable.html
-		translate([0, -16, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 16, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -16, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 16, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		translate([0, 0, 3]) cube([10, 26, 10], center = true);
 	}
 
 	if (hole_type == "displayport")
 	{
 		// Fits http://www.datapro.net/products/dvi-i-panel-mount-extension-cable.html
-		translate([0, -13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		difference()
 		{
 			translate([0, 0, 3]) cube([7, 19, 10], center = true);
@@ -1043,39 +611,39 @@ module PlateDoHoles(hole_type)
 	if (hole_type == "usb-a")
 	{
 		// Fits http://www.datapro.net/products/usb-panel-mount-type-a-cable.html
-		translate([0, -15, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 15, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -15, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 15, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		translate([0, 0, 3]) cube([8, 16, 10], center = true);
 	}
 
 	if (hole_type == "usb-b")
 	{
 		// Fits http://www.datapro.net/products/usb-panel-mount-type-b-cable.html
-		translate([0, -13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 13, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		translate([0, 0, 3]) cube([11, 12, 10], center = true);
 	}
 
 	if (hole_type == "firewire")
 	{
 		// Fits http://www.datapro.net/products/firewire-panel-mount-extension.html
-		translate([0, -13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 13.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		translate([0, 0, 3]) cube([7, 12, 10], center = true);
 	}
 
 	if (hole_type == "f-type")
 	{
 		// Fits http://www.datapro.net/products/f-type-panel-mounting-coupler.html
-		translate([0, 0, 3]) cylinder(r = 4.7625, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, 0, 3]) cylinder(r = 4.7625, h = 10, center = true, $fn = Cylinder_Quality);
 	}
 
 	if (hole_type == "cat5e" || hole_type == "cat6")
 	{
 		// Cat5e Fits http://www.datapro.net/products/cat-5e-panel-mount-ethernet.html
 		// Cat6 Fits hhttp://www.datapro.net/products/cat-6-panel-mount-ethernet.html
-		translate([0, -12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
-		translate([0, 12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);
+		translate([0, -12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
+		translate([0, 12.5, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);
 		translate([0, 0, 3]) cube([15, 15, 10], center = true);
 	}
 
@@ -1083,24 +651,24 @@ module PlateDoHoles(hole_type)
 	{
 		// S-Video Fits hhttp://www.datapro.net/products/cat-6-panel-mount-ethernet.html
 		// PS2 http://www.datapro.net/products/ps2-panel-mount-extension-cable.html
-		translate([0, -10, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);			// screw hole - left
-		translate([0, 10, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = cylinder_quality);			// screw hole - right
-		translate([0, 0, 3]) cylinder(r = 5, h = 10, center = true, $fn = cylinder_quality);				// center hole
+		translate([0, -10, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);			// screw hole - left
+		translate([0, 10, 3]) cylinder(r = 1.75, h = 10, center = true, $fn = Cylinder_Quality);			// screw hole - right
+		translate([0, 0, 3]) cylinder(r = 5, h = 10, center = true, $fn = Cylinder_Quality);				// center hole
 	}
 
 
 	if (hole_type == "stereo")
 	{
 		// Stereo coupler Fits http://www.datapro.net/products/stereo-panel-mount-coupler.html
-		cylinder(r = 2.985, h = 15, center = true, $fn = cylinder_quality);
+		cylinder(r = 2.985, h = 15, center = true, $fn = Cylinder_Quality);
 	}
 
 	if (hole_type == "neutrik")
 	{
 		// Neutrik fits https://www.datapro.net/drawings/cutouts/neutrik_cutout.pdf
-		cylinder(d = 24, h = 15, center = true, $fn = cylinder_quality);									// center hole
-		translate([-12, -9.5, 0]) cylinder(d = 3.2, h = 15, $fn = cylinder_quality);						// screw hole - upper left
-		translate([12, 9.5, 0]) cylinder(d = 3.2, h = 15, $fn = cylinder_quality);							// screw hole - lower right
+		cylinder(d = 24, h = 15, center = true, $fn = Cylinder_Quality);									// center hole
+		translate([-12, -9.5, 0]) cylinder(d = 3.2, h = 15, $fn = Cylinder_Quality);						// screw hole - upper left
+		translate([12, 9.5, 0]) cylinder(d = 3.2, h = 15, $fn = Cylinder_Quality);							// screw hole - lower right
 	}
 
 	if (hole_type == "keystone1")
@@ -1122,17 +690,17 @@ module PlateDoHoles(hole_type)
 
 module PlateDoInner()
 {
-	scale([0.95,kThinnerOffset[plate_width],1])
+	scale([0.95,kThinnerOffset[Plate_Width],1])
 	{
 		translate([3,3,0])
 		{
 			difference()
 			{
-				cube([height_sizes[plate_size], solid_plate_width, 6]);
+				cube([height_sizes[Plate_Size], solid_Plate_Width, 6]);
 				translate([-4.3, -5, 6.2]) rotate([0, 45, 0]) cube([6, kEdgeWidth, 6]); //Top Bevel
-				translate([height_sizes[plate_size] - 4.2, -5, 6.25]) rotate([0, 45, 0]) cube([6, kEdgeWidth, 6]); //Bottom Bevel
-				translate([height_sizes[plate_size] + 10, -4.4, 6.1]) rotate([0, 45, 90]) cube([6, height_sizes[plate_size] + 20, 6]); //Left Bevel (doesn't change)
-				translate([height_sizes[plate_size] + 10, kRightBevel, 6]) rotate([0, 45, 90]) cube([6, height_sizes[plate_size] + 10, 6]); //Right Bevel (scales right)
+				translate([height_sizes[Plate_Size] - 4.2, -5, 6.25]) rotate([0, 45, 0]) cube([6, kEdgeWidth, 6]); //Bottom Bevel
+				translate([height_sizes[Plate_Size] + 10, -4.4, 6.1]) rotate([0, 45, 90]) cube([6, height_sizes[Plate_Size] + 20, 6]); //Left Bevel (doesn't change)
+				translate([height_sizes[Plate_Size] + 10, kRightBevel, 6]) rotate([0, 45, 90]) cube([6, height_sizes[Plate_Size] + 10, 6]); //Right Bevel (scales right)
 			}
 		}
 	}
@@ -1144,20 +712,41 @@ module PlateDoInner()
 
 module PlateDoLabels()
 {
-	for (thisLabel = [0:len(gTextLabels) - 1])
+	// validate labels
+	if (!(len(gTextLabels[kLabelText]) == len(gTextLabels[kLabelFont]) && len(gTextLabels[kLabelText]) == len(gTextLabels[kLabelSize]) && len(gTextLabels[kLabelText]) == len(gTextLabels[kLabelX]) && len(gTextLabels[kLabelText]) == len(gTextLabels[kLabelY]) && len(gTextLabels[kLabelText]) == len(gTextLabels[kLabelCutDepth]) && len(gTextLabels[kLabelText]) == len(gTextLabels[kLabelAngle])))
 	{
-		thisLabelText = gTextLabels[thisLabel][kLabelText];
-		thisLabelFont = gTextLabels[thisLabel][kLabelFont];
-		thisLabelSize = gTextLabels[thisLabel][kLabelSize];
-		thisLabelX = gTextLabels[thisLabel][kLabelX];
-		thisLabelY = gTextLabels[thisLabel][kLabelY];
-		thisLabelCutDepth = gTextLabels[thisLabel][kLabelCutDepth];
-		thisLabelAngle = gTextLabels[thisLabel][kLabelAngle];
+		echo("LABEL LIST MISMATCH");
+		echo("Label Text list size: ", len(gTextLabels[kLabelText]));
+		echo("Label Font list size: ", len(gTextLabels[kLabelFont]));
+		echo("Label Size list size: ", len(gTextLabels[kLabelSize]));
+		echo("Label X list size: ", len(gTextLabels[kLabelX]));
+		echo("Label Y list size: ", len(gTextLabels[kLabelY]));
+		echo("Label Cut Depth list size: ", len(gTextLabels[kLabelCutDepth]));
+		echo("Label Angle list size: ", len(gTextLabels[kLabelAngle]));
+		echo("Label list sizes must match. Please correct this error for your Labels to be created.");
+	}
+
+
+	// create labels
+	labelCount = len(gTextLabels[kLabelText]);
+
+	for (thisLabel = [0:labelCount - 1])
+	{
+		thisLabelText = gTextLabels[kLabelText][thisLabel];
+		thisLabelFont = gTextLabels[kLabelFont][thisLabel];
+		thisLabelSize = gTextLabels[kLabelSize][thisLabel];
+		thisLabelX = gTextLabels[kLabelX][thisLabel];
+		thisLabelY = gTextLabels[kLabelY][thisLabel];
+		thisLabelCutDepth = gTextLabels[kLabelCutDepth][thisLabel];
+		thisLabelAngle = gTextLabels[kLabelAngle][thisLabel];
 
 		// decide what x should be
-		thisPlateNumber = search(gTextLabels[thisLabel][kLabelXMethod], [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["0", 0]])[0];
-		x = gTextLabels[thisLabel][kLabelXMethod] == "0" ? thisLabelX : l_offset[plate_size] + (thisPlateNumber * kSwitchOffset);
+		thisPlateNumber = abs(gTextLabels[kLabelX][thisLabel]) - 1;
+		freeBasedX = thisLabelX + (solid_Plate_Width / 2);
+		gangBasedX = l_offset[Plate_Size] + (thisPlateNumber * kSwitchOffset);
+		x = thisLabelX >= 0 ? freeBasedX : gangBasedX;
 
+		// render the text
 		translate([kMiddleLine + thisLabelY, x, 6 - thisLabelCutDepth])
 		{
 			rotate([0, 0, 90 - thisLabelAngle])
@@ -1177,7 +766,7 @@ module PlateDoLabels()
 
 module PlateDoScrews(plateIndex)
 {
-	x = l_offset[plate_size] + kSwitchOffset * plateIndex;
+	x = l_offset[Plate_Size] + kSwitchOffset * plateIndex;
 	plateType = gPlates[plateIndex];
 
 	if (plateType != "none")
@@ -1185,7 +774,7 @@ module PlateDoScrews(plateIndex)
 		// This is a "Full Plate"
 		if (plateType == "outletDuplex") translate([0, x, 0]) ScrewsCenter();
 		if (plateType == "rocker" || plateType == "outletDespardSingle" || plateType == "outletDespardDouble" || plateType == "outletDespardTriple") translate([0, x, 0]) ScrewsRocker();
-		if (plateType == "button" || plateType == "rotary" || plateType == "toggle" || plateType == "long_toggle" || plateType == "L5-30P") translate([0, x, 0]) ScrewsYoke();
+		if (plateType == "button" || plateType == "rotary" || plateType == "toggle" || plateType == "long_toggle" || plateType == "NEMA-L5-30P") translate([0, x, 0]) ScrewsYoke();
 	} else {
 		// This is a "Mixed Plate"
 		translate([0, x, 0]) ScrewsBox();
@@ -1211,7 +800,7 @@ module PlateDoSolids(plateIndex)
 			// do the layout for this gang
 			for (row = [0:selections - 1])
 			{
-				x = l_offset[plate_size] + kSwitchOffset * plateIndex - 11.5;
+				x = l_offset[Plate_Size] + kSwitchOffset * plateIndex - 11.5;
 				y = gYOffsets[selections - 1][row] + 14.3;
 				rowPitch = rowPitchList[plateIndex];
 				rowItem = gPlateRows[plateIndex][row];
@@ -1244,10 +833,10 @@ module PlateDoSolids(plateIndex)
 module ScrewsBox()
 {
 	// Box screw holes
-	translate([kMiddleLine + 41.67125, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine + 41.67125, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
-	translate([kMiddleLine - 41.67125, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine - 41.67125, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
+	translate([kMiddleLine + 41.67125, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine + 41.67125, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
+	translate([kMiddleLine - 41.67125, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine - 41.67125, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
 }
 
 
@@ -1257,8 +846,8 @@ module ScrewsBox()
 module ScrewsCenter()
 {
 	// Duplex Outlet screw holes
-	translate([kMiddleLine, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
+	translate([kMiddleLine, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
 }
 
 
@@ -1268,10 +857,10 @@ module ScrewsCenter()
 module ScrewsRocker()
 {
 	// Rocker/Designer screw holes
-	translate([kMiddleLine + 48.41875, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine + 48.41875, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
-	translate([kMiddleLine - 48.41875, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine - 48.41875, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
+	translate([kMiddleLine + 48.41875, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine + 48.41875, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
+	translate([kMiddleLine - 48.41875, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine - 48.41875, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
 }
 
 
@@ -1281,10 +870,10 @@ module ScrewsRocker()
 module ScrewsYoke()
 {
 	// Toggle screw holes
-	translate([kMiddleLine + 30.1625, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine + 30.1625, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
-	translate([kMiddleLine - 30.1625, 0, -1]) cylinder(r = 2, h = 10, $fn = cylinder_quality);
-	translate([kMiddleLine - 30.1625, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = cylinder_quality);
+	translate([kMiddleLine + 30.1625, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine + 30.1625, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
+	translate([kMiddleLine - 30.1625, 0, -1]) cylinder(r = 2, h = 10, $fn = Cylinder_Quality);
+	translate([kMiddleLine - 30.1625, 0, 3.5]) cylinder(r1 = 2, r2 = 3.3, h = 3, $fn = Cylinder_Quality);
 }
 
 
@@ -1294,10 +883,10 @@ module ShapeRoundRect(width, height, cornerRadius)
 {
 	hull()
 	{
-		translate([cornerRadius, cornerRadius, 0]) circle(r = cornerRadius, $fn = cylinder_quality);
-		translate([width - cornerRadius, cornerRadius, 0]) circle(r = cornerRadius, $fn = cylinder_quality);
-		translate([width - cornerRadius, height - cornerRadius, 0]) circle(r = cornerRadius, $fn = cylinder_quality);
-		translate([cornerRadius, height - cornerRadius, 0]) circle(r = cornerRadius, $fn = cylinder_quality);
+		translate([cornerRadius, cornerRadius, 0]) circle(r = cornerRadius, $fn = Cylinder_Quality);
+		translate([width - cornerRadius, cornerRadius, 0]) circle(r = cornerRadius, $fn = Cylinder_Quality);
+		translate([width - cornerRadius, height - cornerRadius, 0]) circle(r = cornerRadius, $fn = Cylinder_Quality);
+		translate([cornerRadius, height - cornerRadius, 0]) circle(r = cornerRadius, $fn = Cylinder_Quality);
 	}
 }
 
