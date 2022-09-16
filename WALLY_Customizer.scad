@@ -11,6 +11,11 @@
 
 	Change Log:
 
+	v1.7.1 - Mercury0x0d - 9/15/2022 - Developed in OpenSCAD 2021.01
+	Fixed:
+		- Eliminated "gang based" X axis positioning. Turns out, if you use negative numbers to signify a special positioning mode, you can no longer use negative numbers when you actually need negative numbers. Funny thing, that.
+
+
 	v1.7 - Mercury0x0d - 8/24/2022 - Developed in OpenSCAD 2021.01
 	Added:
 		- Completely rewrote the jack layout engine:
@@ -740,14 +745,8 @@ module PlateDoLabels()
 		thisLabelCutDepth = gTextLabels[kLabelCutDepth][thisLabel];
 		thisLabelAngle = gTextLabels[kLabelAngle][thisLabel];
 
-		// decide what x should be
-		thisPlateNumber = abs(gTextLabels[kLabelX][thisLabel]) - 1;
-		freeBasedX = thisLabelX + (solid_Plate_Width / 2);
-		gangBasedX = l_offset[Plate_Size] + (thisPlateNumber * kSwitchOffset);
-		x = thisLabelX >= 0 ? freeBasedX : gangBasedX;
-
 		// render the text
-		translate([kMiddleLine + thisLabelY, x, 6 - thisLabelCutDepth])
+		translate([kMiddleLine + thisLabelY, thisLabelX + (solid_Plate_Width / 2), 6 - thisLabelCutDepth])
 		{
 			rotate([0, 0, 90 - thisLabelAngle])
 			{
