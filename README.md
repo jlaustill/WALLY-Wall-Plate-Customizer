@@ -1,6 +1,7 @@
-# WALLY Wall Plate Customizer - Mercury Thirteen Fork v1.7
+# WALLY Wall Plate Customizer - Mercury Thirteen Fork v1.7.1
 
-This is a fork of the awesome WALLY Wall Plate Customizer by TheNewHobbyist (https://www.thingiverse.com/thing:47956) which itself was forked by Joshua Austill (https://github.com/jlaustill/WALLY-Wall-Plate-Customizer).
+This is a fork of Joshua Austill's WALLY Wall Plate Customizer (https://github.com/jlaustill/WALLY-Wall-Plate-Customizer) which itself was forked from the awesome original by TheNewHobbyist (https://www.thingiverse.com/thing:47956 / https://github.com/thenewhobbyist/OpenSCAD).
+
 
 I've added several enhancements, such as:
 
@@ -46,7 +47,7 @@ For example, this is what's previded by default:
 Label Text		["", "", "", "", ""]
 Label Font		["Liberation Mono", "Liberation Mono", "Liberation Mono", "Liberation Mono", "Liberation Mono"]
 Label Size		[4, 4, 4, 4, 4]
-Label X			[-1, -2, -3, -4, -5]
+Label X			[0, 0, 0, 0, 0]
 Label Y			[0, 0, 0, 0, 0]
 Label Cut Depth		[2, 2, 2, 2, 2]
 Label Angle		[0, 0, 0, 0, 0]
@@ -54,13 +55,13 @@ Label Angle		[0, 0, 0, 0, 0]
 
 
 
-This is a valid customization:
+Assuming the QSwitchAx font is installed, this is a valid customization:
 <pre>
-Label Text		["TV - Left", "TV - Right", "TV - Subwoofer", "Printers", "PCs - Upstairs"]
-Label Font		["QSwitchAx", "QSwitchAx", "QSwitchAx", "Loma", "Loma"]
+Label Text		["Lab", "3A", "3B", "3C", "3D"]
+Label Font		["QSwitchAx", "QSwitchAx", "QSwitchAx", "QSwitchAx", "QSwitchAx"]
 Label Size		[4, 4, 4, 4, 4]
-Label X			[-1, -1, -1, -2, -2]
-Label Y			[-15, 10, 34, -12, 13]
+Label X			[0, -13, 13, -13, 13]
+Label Y			[-30, -24, -24, 4, 4]
 Label Cut Depth		[2, 2, 2, 2, 2]
 Label Angle		[0, 0, 0, 0, 0]
 </pre>
@@ -72,12 +73,8 @@ This is also valid, to have more Labels:
 Label Text		["TV - Left", "TV - Right", "TV - Subwoofer", "Printers", "PCs - Upstairs", "PCs - Downstairs", "Doorbell Cameras", "Wii, XBox"]
 Label Font		["QSwitchAx", "QSwitchAx", "QSwitchAx", "Loma", "Loma", "Loma", "Padauk", "Padauk"]
 Label Size		[4, 4, 4, 4, 4, 4, 4, 4]
-Label X			[-1, -1, -1, -2, -2, -2, -3, -3]
-Label Y			[-15, 10, 34, -12, 13, 38, 0, 28]
+Label X			[-46, -46, -46, 0, 0, 0, 46, 46]
+Label Y			[-18, 8, 32, -12, 13, 38, -24, 28]
 Label Cut Depth		[2, 2, 2, 2, 2, 2, 2, 2]
 Label Angle		[0, 0, 0, 0, 0, 0, 0, 0]
 </pre>
-
-
-
-The negative numbers in the "Label X" field are a shortcut to tell the Customizer to position that Label centered along the X axis of the specified gang. For example, to automatically position a Label in the center of gang 3, you would indicate -3 in this field. If instead the value is non-negative, the number will be enterpreted literally to specify the absolute position of this Label along the X axis. This allows you to specify a Label to appear anywhere on the plate, not just in relation to the position of a given gang.
