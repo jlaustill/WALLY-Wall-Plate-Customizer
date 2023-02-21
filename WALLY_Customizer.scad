@@ -11,6 +11,11 @@
 
 	Change Log:
 
+	v1.7.2 - Mercury0x0d - 2/19/2023 - Developed in OpenSCAD 2021.01
+	Fixed:
+		- Made change suggested by @Johnepanz to ovalify the mounting holes of Neutrik cutouts
+
+
 	v1.7.1 - Mercury0x0d - 9/15/2022 - Developed in OpenSCAD 2021.01
 	Fixed:
 		- Eliminated "gang based" X axis positioning. Turns out, if you use negative numbers to signify a special positioning mode, you can no longer use negative numbers when you actually need negative numbers. Funny thing, that.
@@ -672,8 +677,8 @@ module PlateDoHoles(hole_type)
 	{
 		// Neutrik fits https://www.datapro.net/drawings/cutouts/neutrik_cutout.pdf
 		cylinder(d = 24, h = 15, center = true, $fn = Cylinder_Quality);									// center hole
-		translate([-12, -9.5, 0]) cylinder(d = 3.2, h = 15, $fn = Cylinder_Quality);						// screw hole - upper left
-		translate([12, 9.5, 0]) cylinder(d = 3.2, h = 15, $fn = Cylinder_Quality);							// screw hole - lower right
+		translate([-12, -9.5, 0]) rotate(-45,[0,0,1])resize([6,3.2]) cylinder(d = 3.2, h = 15, $fn = Cylinder_Quality); // screw hole - upper left
+		translate([12, 9.5, 0]) rotate(-45,[0,0,1])resize([6,3.2]) cylinder(d = 3.2, h = 15, $fn = Cylinder_Quality); // screw hole - lower right
 	}
 
 	if (hole_type == "keystone1")

@@ -1,4 +1,4 @@
-# WALLY Wall Plate Customizer - Mercury Thirteen Fork v1.7.1
+# WALLY Wall Plate Customizer - Mercury Thirteen Fork v1.7.2
 
 This is a fork of Joshua Austill's WALLY Wall Plate Customizer (https://github.com/jlaustill/WALLY-Wall-Plate-Customizer) which itself was forked from the awesome original by TheNewHobbyist (https://www.thingiverse.com/thing:47956 / https://github.com/thenewhobbyist/OpenSCAD).
 
@@ -17,7 +17,8 @@ I've added several enhancements, such as:
 - Added an adjustable value for cylinder quality
 - Grouped options into tabs for greater ease of use
 - Sorted cutout names in Customizer lists to make more logical sense and make for easier navigation
-- Added Neutrik Cutouts (https://www.datapro.net/drawings/cutouts/neutrik_cutout.pdf) per HacksolotFilms's suggestion
+- Added Neutrik cutouts (https://www.datapro.net/drawings/cutouts/neutrik_cutout.pdf) per HacksolotFilms's suggestion
+- Bestowed oval mounting holes upon Neutrik cutouts per Johnepanz's suggestion
 - Fixed a bug where the first plate spot did not build unless one of the "full plate" options are used
 - Fixed: "Liberation Mono:Bol" -> "Liberation Mono:Bold"
 - Improved layout of code... to me, at least. :)
